@@ -48,7 +48,7 @@ class TraditionalOfferUserNotification extends Notification implements ShouldQue
      */
     public function toMail($notifiable)
     {
-        return (new TraditionalOfferUserMail($this->offer))
+        return (new TraditionalOfferUserNotification($this->offer))
             ->to($notifiable->email);
     }
 

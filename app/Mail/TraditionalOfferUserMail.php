@@ -14,15 +14,17 @@ class TraditionalOfferUserMail extends Mailable
     use Queueable, SerializesModels;
 
     public $offer;
+    public $user;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct(Offer $offer)
+    public function __construct(Offer $offer, User $user)
     {
         $this->offer = $offer;
+        $this->user = $user;
     }
 
     /**
@@ -33,6 +35,6 @@ class TraditionalOfferUserMail extends Mailable
     public function build()
     {
         return $this->markdown('emails.offers.submitted')
-            ->subject('Traditional Offer '. $this->offer->listing->address);
+            ->subject('Traditional Offer '. $this->offer->offer_amount);
     }
 }

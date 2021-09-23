@@ -10,14 +10,12 @@ class Offer extends Model
     use HasFactory;
 
     protected $fillable = [
-        'listing_id',
         'user_id',
         'offer_amount',
         'currency',
         'currency_amount',
         'exchange_rate',
         'offer_type',
-        'auction_id',
         'outcome',
         'details'
     ];
@@ -28,11 +26,6 @@ class Offer extends Model
      * @var string
      */
     protected $table = 'listing_offers';
-
-    public function listing()
-    {
-        return $this->belongsTo(Listing::class);
-    }
 
     public function user()
     {
